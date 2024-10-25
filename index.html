@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Budget Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Budget Planner</h1>
+        <h2>Budget Breakdown</h2>
+        <div class="budget-bar">
+            <div id="food-bar" class="bar-segment food"></div>
+            <div id="clothes-bar" class="bar-segment clothes"></div>
+            <div id="books-bar" class="bar-segment books"></div>
+            <div id="others-bar" class="bar-segment others"></div>
+        </div>
+
+        <h2>Spending Overview (Sorted by Most Spent)</h2>
+        <div id="color-legend">
+            <!-- This will be dynamically filled with color squares and labels -->
+        </div>
+
+        <h2>Results</h2>
+        <p id="total-spent">Total Spent: </p>
+        <p id="remaining-budget">Remaining Budget: </p>
+        <div class="budget-input">
+            <label for="total-budget">Enter your total monthly budget (INR): </label>
+            <input type="number" id="total-budget" placeholder="Enter monthly budget">
+        </div>
+
+        <h2>Add Daily Expense</h2>
+        <div class="expense-input">
+            <label for="expense-desc">Expense Description: </label>
+            <input type="text" id="expense-desc" placeholder="e.g. Lunch, T-shirt, Notebook">
+            
+            <label for="expense-amount">Amount (INR): </label>
+            <input type="number" id="expense-amount" placeholder="Enter amount spent">
+            <div class="btns">            
+                <button id="add-expense-btn">Add Expense</button>
+                <button id="reset">Reset</button></div>
+            
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
