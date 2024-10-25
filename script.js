@@ -1,4 +1,4 @@
-// Initialize variables from localStorage or set to 0
+
 let totalBudget = parseFloat(localStorage.getItem('totalBudget')) || 0;
 let totalSpent = parseFloat(localStorage.getItem('totalSpent')) || 0;
 let foodSpent = parseFloat(localStorage.getItem('foodSpent')) || 0;
@@ -6,8 +6,6 @@ let clothesSpent = parseFloat(localStorage.getItem('clothesSpent')) || 0;
 let booksSpent = parseFloat(localStorage.getItem('booksSpent')) || 0;
 let otherSpent = parseFloat(localStorage.getItem('otherSpent')) || 0;
 
-
-// Update the input field and results on page load
 document.addEventListener('DOMContentLoaded', function() {
     if (totalBudget) {
         document.getElementById('total-budget').value = totalBudget;
@@ -33,7 +31,6 @@ document.getElementById('add-expense-btn').addEventListener('click', function() 
     }
 });
 
-// Event listener for setting the monthly budget
 document.getElementById('total-budget').addEventListener('input', function() {
     totalBudget = parseFloat(document.getElementById('total-budget').value) || 0;
     updateResults();
@@ -42,7 +39,6 @@ document.getElementById('total-budget').addEventListener('input', function() {
     saveToLocalStorage();
 });
 
-// Categorize expense based on description
 function categorizeExpense(desc, amount) {
     if (desc.includes('food') || desc.includes('lunch') || desc.includes('dinner') || desc.includes('snack')) {
         foodSpent += amount;
@@ -56,7 +52,6 @@ function categorizeExpense(desc, amount) {
     totalSpent += amount;
 }
 
-// Update the total and remaining budget display
 function updateResults() {
     const remainingBudget = totalBudget - totalSpent;
 
@@ -64,7 +59,6 @@ function updateResults() {
     document.getElementById('remaining-budget').innerText = `Remaining Budget: INR ${remainingBudget.toFixed(2)}`;
 }
 
-// Update the visual budget bar
 function updateBudgetBar() {
     const foodPercentage = (foodSpent / totalBudget) * 100;
     const clothesPercentage = (clothesSpent / totalBudget) * 100;
@@ -77,7 +71,6 @@ function updateBudgetBar() {
     document.getElementById('others-bar').style.width = `${othersPercentage}%`;
 }
 
-// Update the color legend based on spending
 function updateLegend() {
     const legendContainer = document.getElementById('color-legend');
     legendContainer.innerHTML = '';
